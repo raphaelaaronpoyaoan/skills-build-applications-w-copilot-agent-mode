@@ -34,10 +34,13 @@ import os
 CODESPACE_NAME = os.environ.get('CODESPACE_NAME')
 _default_hosts = ['localhost', '127.0.0.1']
 if CODESPACE_NAME:
-    # Include the public forwarded host (port appended) and the generic Codespace host
+    # Include the public forwarded host (port appended), the generic Codespace host,
+    # and allow all app.github.dev hosts to handle cases where the process env does not
+    # match the public hostname seen by the request.
     _default_hosts.extend([
         f"{CODESPACE_NAME}-8000.app.github.dev",
         f"{CODESPACE_NAME}.app.github.dev",
+        ".app.github.dev",
     ])
 ALLOWED_HOSTS = _default_hosts
 
