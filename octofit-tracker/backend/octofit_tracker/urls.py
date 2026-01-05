@@ -19,6 +19,7 @@ from django.contrib import admin
 from django.urls import path, include
 from rest_framework.routers import DefaultRouter
 from rest_framework.response import Response
+from rest_framework.decorators import api_view
 from . import views
 
 router = DefaultRouter()
@@ -53,6 +54,7 @@ def _base_url(request=None):
     return "http://localhost:8000"
 
 
+@api_view(['GET'])
 def custom_api_root(request, format=None):
     base = _base_url(request)
     return Response({
