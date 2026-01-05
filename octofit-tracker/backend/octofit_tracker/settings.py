@@ -34,13 +34,20 @@ import os
 CODESPACE_NAME = os.environ.get('CODESPACE_NAME')
 _default_hosts = ['localhost', '127.0.0.1']
 if CODESPACE_NAME:
-    _default_hosts.append(f"{CODESPACE_NAME}-8000.app.github.dev")
+    # Include the public forwarded host (port appended) and the generic Codespace host
+    _default_hosts.extend([
+        f"{CODESPACE_NAME}-8000.app.github.dev",
+        f"{CODESPACE_NAME}.app.github.dev",
+    ])
 ALLOWED_HOSTS = _default_hosts
 
 # CSRF trusted origins (include codespace HTTPS origin if available and local HTTP origins for testing)
 CSRF_TRUSTED_ORIGINS = []
 if CODESPACE_NAME:
-    CSRF_TRUSTED_ORIGINS.append(f"https://{CODESPACE_NAME}-8000.app.github.dev")
+    CSRF_TRUSTED_ORIGINS.extend([
+        f"https://{CODESPACE_NAME}-8000.app.github.dev",
+        f"https://{CODESPACE_NAME}.app.github.dev",
+    ])
 # Also allow local http origins for local testing
 CSRF_TRUSTED_ORIGINS += ["http://localhost:8000", "http://127.0.0.1:8000"]
 
