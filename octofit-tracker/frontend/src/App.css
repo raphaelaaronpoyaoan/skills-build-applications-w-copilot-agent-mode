@@ -1,0 +1,89 @@
+/* App styling adapted for Bootstrap layout */
+
+/* Theme colors */
+:root {
+  --primary:#0d6efd; /* bootstrap primary */
+  --accent:#6610f2;
+  --bg:#eef6ff;
+  --muted:#6c757d;
+  --text:#0b2545;
+  --table-odd:#f6fbff;
+  --table-head:#e9f2ff;
+}
+
+body {
+  background: linear-gradient(180deg, var(--bg), #f7fbff 60%);
+  color: var(--text);
+}
+
+.App {
+  min-height: 100vh;
+}
+
+/* Navbar tweaks */
+.navbar.bg-primary {
+  background: linear-gradient(90deg, var(--primary), var(--accent)) !important;
+}
+.navbar .navbar-brand img {
+  border-radius: 4px;
+}
+.navbar .nav-link {
+  color: rgba(255,255,255,0.95) !important;
+}
+.navbar .nav-link.active {
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+/* Cards */
+.container .card {
+  box-shadow: 0 4px 18px rgba(11,37,69,0.06);
+  border: none;
+}
+.card-header {
+  background: linear-gradient(90deg, rgba(13,110,253,0.06), rgba(102,16,242,0.03));
+}
+
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+  color: var(--primary);
+}
+
+/* Tables */
+.table thead th {
+  background: var(--table-head);
+  color: var(--text);
+  border-bottom: 2px solid rgba(11,37,69,0.06);
+}
+.table-striped>tbody>tr:nth-of-type(odd) {
+  background-color: var(--table-odd);
+}
+.table td, .table th {
+  vertical-align: middle;
+}
+
+/* Buttons */
+.btn-primary {
+  background: linear-gradient(180deg, var(--primary), #0b5ed7);
+  border: none;
+  box-shadow: 0 2px 6px rgba(13,110,253,0.18);
+}
+.btn-outline-primary {
+  border-color: rgba(13,110,253,0.35);
+  color: var(--primary);
+}
+
+/* Links */
+a {
+  color: var(--primary);
+}
+
+/* small utilities */
+.json-pre {
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+.btn-xs {
+  padding: .25rem .5rem;
+  font-size: .75rem;
+}
